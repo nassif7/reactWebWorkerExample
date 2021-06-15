@@ -7,9 +7,9 @@ export default function App() {
   const worker: Worker = React.useMemo(() => new Worker("worker.js"), []);
 
   React.useEffect(() => {
-    worker.onmessage = ($event: MessageEvent) => {
-      if ($event && $event.data) {
-        setLazyCount($event.data);
+    worker.onmessage = (event: MessageEvent) => {
+      if (event && event.data) {
+        setLazyCount(event.data);
       }
     };
   }, [worker]);

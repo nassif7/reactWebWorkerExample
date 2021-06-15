@@ -4,9 +4,9 @@ function increase(count) {
   return count + 1;
 }
 
-onmessage = async ($event) => {
-  if ($event && $event.data && $event.data.msg === "increase") {
-    const newCounter = increase($event.data.count);
+onmessage = async (event) => {
+  if (event && event.data && event.data.msg === "increase") {
+    const newCounter = increase(event.data.count);
     postMessage(newCounter);
   }
 };
